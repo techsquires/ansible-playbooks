@@ -1,0 +1,45 @@
+ASTERISK on UBUNTU
+apt install python3-mysqldb -y 
+wget https://github.com/FreePBX/sng_freepbx_debian_install/raw/master/sng_freepbx_debian_install.sh  
+wget http://mirror.freepbx.org/modules/packages/freepbx/8.2/freepbx-freepbxdistro-17.0-latest.tgz
+
+All other ASTERISK on UBUNTU destroyed as installation on DEBIAN12 is seemless. Download the sng_freepbx_debian_install.sh and run.
+
+ANSIBLE
+	OpenSSH: AT WORKSTATION
+		KEYS:	Create on HOST
+			ssh-keygen -t ed25519 -C "Ansible Tutorial With Passphrase" 
+					NOTES: -C  is optional comment; -t is optional with ed25519 being more secure than the default;will ask for a path DO NOT USE shortcut;will ask for passphrase ethier for users enter or for automation leave blank;  confirm either
+		     	Copy to DEVICE
+			ssh-copy-id -i <PATH> <user@device-ip>  
+					NOTES: -i is the file to copy. Only copies the pub key and places it in folder ~/.ssh/authorized_keys of guest.  Multiple keys can be on the same host 
+			
+		USE:
+			ssh -i <option path to key> user@device-ip
+					NOTES: -i is for the private key to us (not .pub) and is not neccessary if there is only one or if you use the first key in the authorized_keys file
+	GIT: AT WORKSTATION
+		CHECK
+			which git
+				NOTES: if no return then not installed. WHICH can be used to find any binary
+		INSTALL
+			sudo apt install git
+		From guthub.com webpage
+			CREATE OR LOGIN github.com
+			CREATE RPOSITORY   ronsquires/
+			COPY link   https://github.com/ronsquires/ansible-playbooks.git
+		Back at the ranch (workstation)
+		CONFIGURE GIT on WORKSTATION
+			git config --global user.name "Ron Squires"
+			git config --global user.email "ron@techsquires.com"
+		CLONE REPSOITORY git clone https://github.com/ronsquires/ansible-playbooks.git	
+		PUSH REPOSITORY git push origin main
+			NOTES: main is unique to the github repository branch
+				if error:The key you are authenticating with has been marked as read only. fatal: Could not read from remote repository. 
+					then: Remove all keys from your SSH agent, and re-add just the correct account key.
+						ssh-add -D
+						ssh-add /path/to/correct/key  ~/.ssh/github-techsquires
+		
+
+
+
+
