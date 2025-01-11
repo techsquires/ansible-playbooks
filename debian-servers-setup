@@ -25,21 +25,32 @@ ANSIBLE
 			sudo apt install git
 		From guthub.com webpage
 			CREATE OR LOGIN github.com
-			CREATE RPOSITORY   ronsquires/
-			COPY link   https://github.com/ronsquires/ansible-playbooks.git
+			CREATE RPOSITORY   
+			COPY link   https://github.com/xxxxxxx/fffff.git
 		Back at the ranch (workstation)
 		CONFIGURE GIT on WORKSTATION
-			git config --global user.name "Ron Squires"
-			git config --global user.email "ron@techsquires.com"
-		CLONE REPSOITORY git clone https://github.com/ronsquires/ansible-playbooks.git	
+			git config --global user.name "username"
+			git config --global user.email "email"
+		CLONE REPSOITORY git clone https://github.com/xxxxxxx/fffff.git	
+		after changes
+		ADD FILE to commit
+			git add <filename>
+		COMMIT FILE
+			git commit -m "Useful Message"s
 		PUSH REPOSITORY git push origin main
 			NOTES: main is unique to the github repository branch
 				if error:The key you are authenticating with has been marked as read only. fatal: Could not read from remote repository. 
 					then: Remove all keys from your SSH agent, and re-add just the correct account key.
 						ssh-add -D
-						ssh-add /path/to/correct/key  ~/.ssh/github-techsquires
+						ssh-add /path/to/correct/key  ~/.ssh/github-xxxxxx
 		
-
+		CREATE INVENTORY 
+			text file with IP address
+		RUN AD-HOC
+			ansible all --key-file ~/.ssh/automation -i <path>inventory -m ping -a <[optional] arguements>
+		modules
+			gather-facts
+			apt  -a update_cache
 
 
 
